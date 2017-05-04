@@ -42,29 +42,29 @@ public class UserRegistrationController extends BaseController{
 		//从数据库提取出json串
 		System.out.println(jsonArray);
 		//将前端传入的json数据与jsonArray对比，相同返回false
-		if(param==jsonArray){
+		//if(param==jsonArray){
 			return false;
-		} else {
-			return true;
-		}
+		//} else {
+		//	return true;
+		//}
 
 	}
 
 
 	//用户名不存在则加入数据库中,执行service层中的addNewUserInfo方法,将用户信息加入数据库中 ,返回注册成功和注册失败信息      
 	//ajax请求
-	@POST
+	/*@POST
 	@Path(value="/registration")
 	//从前端页面获取到注册信息，账号、密码、email、电话，添加到数据库中
 	public boolean addUser(@RequestBody String username,String pwd,String email,String phone){
 		//将前端页面传入的数据转换成List
 		String str=param;
-
+		JSONObject json = JSONObject.fromObject(request.getParameter("param"));
 		
 		
 		
 		return false;
-
+*/
 	
 }
 

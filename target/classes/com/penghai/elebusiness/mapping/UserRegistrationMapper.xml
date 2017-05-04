@@ -19,8 +19,41 @@
   </select> 
   
   <!-- 添加一条用户信息记录 -->  
-  <insert id="addUser" parameterType="com.penghai.elebusiness.bo.UserRegistration"  >  
+  <insert id="insert" parameterType="com.penghai.elebusiness.bo.UserRegistration"  >  
         insert into t_user(username,pwd,email,phone) values(#{username},#{pwd},#{email},#{phone})  
   </insert>  
+  
+    <insert id="insertSelective" parameterType="com.penghai.elebusiness.bo.UserRegistration" >
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="pwd!= null" >
+        pwd,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd!= null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+
+    </trim>
+  </insert>
   
 </mapper>  
