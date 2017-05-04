@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penghai.elebusiness.dao.UserRegistrationMapper" >
+  <resultMap id="BaseResultMap" type="com.penghai.elebusiness.bo.UserRegistration" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR"/>
+    <result column="phone" property="phone" jdbcType="VARCHAR"/>
+  </resultMap>
+  
+  <sql id="Base_All_List" >
+    id, username,pwd,email,phone
+  </sql>
+  
+  <!-- 查询数据库是否有相同的用户名 -->
+  <select id="findUserByUsername" parameterType="String"  resultMap="BaseResultMap">  
+        select username  from t_user where username="lilijiang"
+  </select> 
+  
+  <!-- 添加一条用户信息记录 -->  
+  <insert id="addUser" parameterType="com.penghai.elebusiness.bo.UserRegistration"  >  
+        insert into t_user(username,pwd,email,phone) values(#{username},#{pwd},#{email},#{phone})  
+  </insert>  
+  
+</mapper>  
