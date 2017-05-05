@@ -23,12 +23,12 @@ public class UserRegistrationService {
 			return userinfo;
 	}
 	
-	//通过表单注册账号
-	//public void  insertUser(String username,String pwd,String email,String phone) {
-	//	List<UserRegistration> userinfo = userRegistrationMapper.addUser(username,pwd,email,phone);
-	//	return userinfo;
+	//注册账号
+	public void insertUser(String username,String pwd,String email,String phone) {
+		userRegistrationMapper.insert(username, pwd, email, phone);
+	
 		
-	//}
+	}
 	
 
 	

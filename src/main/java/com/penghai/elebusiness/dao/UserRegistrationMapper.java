@@ -16,7 +16,9 @@ public interface UserRegistrationMapper {
 	/*
 	 * 向数据库增加一条用户注册信息
 	 */
-	int insert(UserRegistration record);
+	
+	public void insert(String username,String pwd,String email,String phone);
+	
 
 	
 
